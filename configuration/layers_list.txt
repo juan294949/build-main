@@ -1,0 +1,2 @@
+meta-poky
+meta-yocto-bsp

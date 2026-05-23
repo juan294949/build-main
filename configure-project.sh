@@ -6,32 +6,35 @@ echo "Staring configuration."
 PWD_PATH=$(pwd)
 PATH_TO_LAYERS="${PWD}/layers"
 BRANCH="wrynose"
-clone_list=("meta-yocto")
+layers_list=()
+repos_list=()
 
-echo "Downloading layers needed for the project."
+echo "Configuring environment:"
+source ${PWD_PATH}/oecore/oe-init-build-env
+
+# Repositories needed for the project.
+while IFS= read -r line
+  do
+    repos_list+=$line
+done < ${PWD_PATH}/configuration/repos_list.txt
+
+echo "Downloading repos needed for the project."
 # Download the repositories needed and change to the branch required.
 # Currently using Wrynose.
 
-for repo in "${clone_list[@]}"; do
-
-  cd ${PATH_TO_LAYERS}
-
+for repo in "${repos_list[@]}"; do
   if [[ -d ${PATH_TO_LAYERS}/${repo} ]]; then
-
     echo "repository found at: ${PATH_TO_LAYERS}/${repo}"
-
   else
-
     echo " clonning: ${repo} from: https://git.yoctoproject.org/${repo}"
-    cd ${PATH_TO_LAYERS}
-    git clone https://git.yoctoproject.org/${repo}
-    cd ${PATH_TO_LAYERS}/${repo}
-    echo " changing branch in ${repo} from $(git branch) to ${BRANCH}"
-    git checkout ${BRANCH}
-
+    git clone -b "${BRANCH}" "https://git.yoctoproject.org/${repo}" "${PATH_TO_LAYERS}/${repo}"
   fi
-
 done
 
-echo "Layers cloned. Configuring environment:"
-source ${PWD_PATH}/oecore/oe-init-build-env
+# Layers to add in the bblayer.conf file.
+while IFS= read -r line
+  do
+    bitbake-layers add-layer "${PATH_TO_LAYERS}/${repo}/${line}"
+done < ${PWD_PATH}/configuration/layers_list.txt
+
+cd $PWD_PATH
