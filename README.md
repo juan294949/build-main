@@ -1,2 +1,2 @@
 # build-main
-Yocto main build
+Configure the project by running " source configure-project.sh"

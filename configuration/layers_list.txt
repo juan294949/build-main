@@ -1,0 +1,17 @@
+poky/meta
+poky/meta-poky
+poky/meta-yocto-bsp
+meta-arm/meta-arm-toolchain
+meta-arm/meta-arm
+meta-xilinx/meta-xilinx-core
+meta-xilinx/meta-xilinx-bsp
+meta-xilinx/meta-xilinx-standalone
+meta-zybo
+meta-xilinx/meta-xilinx-vendor
+meta-openembedded/meta-oe
+meta-security
+meta-openembedded/meta-python
+meta-security/meta-tpm
+meta-openembedded/meta-networking
+meta-openembedded/meta-filesystems
+meta-virtualization
