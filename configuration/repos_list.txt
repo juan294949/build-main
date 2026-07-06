@@ -1,5 +1,5 @@
 https://github.com/openembedded/meta-openembedded.git
-https://github.com/openembedded/meta-security.git
-https://github.com/openembedded/meta-arm.git
-https://github.com/openembedded/meta-xilinx.git
-https://github.com/openembedded/meta-virtualization.git
+https://git.yoctoproject.org/meta-security
+https://git.yoctoproject.org/meta-arm
+https://git.yoctoproject.org/meta-virtualization
+https://github.com/Xilinx/meta-xilinx.git
