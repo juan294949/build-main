@@ -11,6 +11,7 @@ declare -a layers_list
 
 git clone -b "${BRANCH}" "https://github.com/juan294949/poky.git" "${PATH_TO_LAYERS}/poky"
 git clone -b "${BRANCH}" "https://github.com/juan294949/meta-zybo.git" "${PATH_TO_LAYERS}/meta-zybo"
+git clone "https://github.com/juan294949/meta-custom-projects.git" "${PATH_TO_LAYERS}/meta-custom-projects"
 
 echo "Configuring environment:"
 source ${PATH_TO_LAYERS}/poky/oe-init-build-env

@@ -7,6 +7,7 @@ meta-xilinx/meta-xilinx-core
 meta-xilinx/meta-xilinx-bsp
 meta-xilinx/meta-xilinx-standalone
 meta-zybo
+meta-custom-projects
 meta-xilinx/meta-xilinx-vendor
 meta-openembedded/meta-oe
 meta-security
